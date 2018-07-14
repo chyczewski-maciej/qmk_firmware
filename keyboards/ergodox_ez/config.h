@@ -54,19 +54,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define LOCKING_RESYNC_ENABLE
 
 /* key combination for command */
-#define IS_COMMAND() ( \
-    keyboard_report->mods == (MOD_BIT(KC_LCTL) | MOD_BIT(KC_RCTL)) || \
-    keyboard_report->mods == (MOD_BIT(KC_LSFT) | MOD_BIT(KC_RSFT)) \
-)
-
+#define IS_COMMAND() ( false )
 /* number of backlight levels */
-#define BACKLIGHT_LEVELS 3
+#define BACKLIGHT_LEVELS 0
 
 #ifndef LED_BRIGHTNESS_LO
-#define LED_BRIGHTNESS_LO       15
+#define LED_BRIGHTNESS_LO       0
 #endif
 #ifndef LED_BRIGHTNESS_HI
-#define LED_BRIGHTNESS_HI       255
+#define LED_BRIGHTNESS_HI       0
 #endif
 #define LED_BRIGHTNESS_DEFAULT (LED_BRIGHTNESS_HI)
 
@@ -102,13 +98,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define USB_MAX_POWER_CONSUMPTION 500
 
 // RGB backlight
-#define DRIVER_ADDR_1 0b1110100
-#define DRIVER_ADDR_2 0b1110111
-#define DRIVER_COUNT 2
-#define DRIVER_1_LED_TOTAL 24
-#define DRIVER_2_LED_TOTAL 24
+#define DRIVER_COUNT 0
+#define DRIVER_1_LED_TOTAL 0
+#define DRIVER_2_LED_TOTAL 0
 #define DRIVER_LED_TOTAL DRIVER_1_LED_TOTAL + DRIVER_2_LED_TOTAL
-#define RGB_MATRIX_SKIP_FRAMES 10
+#define RGB_MATRIX_SKIP_FRAMES 1000
 
 // #define RGBLIGHT_COLOR_LAYER_0 0x00, 0x00, 0xFF
 /* #define RGBLIGHT_COLOR_LAYER_1 0x00, 0x00, 0xFF */
@@ -130,6 +124,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /* disable print */
 // #define NO_PRINT
 
+
+
+
+#define AUTO_SHIFT_TIMEOUT 200
+#define NO_AUTO_SHIFT_SPECIAL
+
+
+
 /* disable action features */
 //#define NO_ACTION_LAYER
 //#define NO_ACTION_TAPPING
@@ -138,4 +140,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#define NO_ACTION_FUNCTION
 //#define DEBUG_MATRIX_SCAN_RATE
 
+
+/* bootmagic salt key */
+#define BOOTMAGIC_KEY_SALT              KC_ESC
+
+/* skip bootmagic and eeconfig */
+#define BOOTMAGIC_KEY_SKIP              KC_SPACE
+#define BOOTMAGIC_KEY_DEBUG_ENABLE      KC_D
+#define BOOTMAGIC_KEY_BOOTLOADER        KC_B
 #endif

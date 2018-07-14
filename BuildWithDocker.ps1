@@ -1,0 +1,1 @@
+docker run -e keymap=er -e keyboard=ergodox_ez --rm -v "$((Get-Item -Path ".\").FullName):/qmk:rw" edasque/qmk_firmware
